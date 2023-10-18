@@ -70,7 +70,6 @@ function checkScore() {
   if (movement === 9) {
     info.textContent = "It's a Tie!";
   }
-  ("  and in the movement function i increment the movement ");
 }
 function refreshPage() {
   window.location.reload();

@@ -1,6 +1,7 @@
 const gameBoard = document.querySelector(".gameboard");
 const info = document.querySelector(".info");
 const btn = document.querySelector(".btn");
+let movement = 0;
 
 const startingCells = ["", "", "", "", "", "", "", "", ""];
 let currrentShape = "circle";
@@ -22,6 +23,7 @@ function addShape(e) {
   const goDisplay = document.createElement("div");
   goDisplay.classList.add(currrentShape);
   e.target.append(goDisplay);
+  movement++;
   currrentShape = currrentShape === "circle" ? "cross" : "circle";
   info.innerText = `It is now ${currrentShape}'s go.`;
   e.target.removeEventListener("click", addShape);
@@ -65,6 +67,10 @@ function checkScore() {
     }
     return;
   });
+  if (movement === 9) {
+    info.textContent = "It's a Tie!";
+  }
+  ("  and in the movement function i increment the movement ");
 }
 function refreshPage() {
   window.location.reload();
